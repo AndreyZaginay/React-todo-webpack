@@ -14,8 +14,8 @@ export const routes = [
         component: TodoPageId,
         name: 'TodoPageId'
     },
-    // {
-    //     path: '*',
-    //     component: NotFound
-    // }
+    {
+        path: 'notFound',
+        component: NotFound
+    }
 ]
