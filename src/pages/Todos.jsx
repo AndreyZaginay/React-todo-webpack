@@ -8,7 +8,9 @@ export const Todos = () => {
   const [todos, setTodos] = useState([]);
 
   const getTodos = () => {
-    setTodos(JSON.parse(localStorage.getItem('todos') || '[]'));
+    const AllTodos = JSON.parse(localStorage.getItem("todos"));
+    setTodos(AllTodos);
+
   }
 
   const createTodo = (newTodo) => {
@@ -20,7 +22,9 @@ export const Todos = () => {
   }
 
   useEffect(() => {
-    localStorage.setItem("todos", JSON.stringify(todos));
+    if(todos.length) {
+      localStorage.setItem("todos", JSON.stringify(todos));
+    }
   }, [todos])
 
   useEffect(() => {
@@ -28,7 +32,7 @@ export const Todos = () => {
   }, [])
 
   return (
-    <div>
+    <div className='App'>
       <TodoForm create={createTodo}/>
       <TodoList todos={todos} remove={removeTodo}/>
     </div>

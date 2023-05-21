@@ -12,9 +12,9 @@ export const TodoList = ({ todos, remove }) => {
         )
     }
     return (
-        <div>
+        <div className='todolist'>
             {todos.map((todo, index) => 
-                <TodoItem todo={todo} key={index} remove={remove}/>
+                <TodoItem todo={todo} key={index} number={index + 1} remove={remove}/>
             )}
         </div>
     )

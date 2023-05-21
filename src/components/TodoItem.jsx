@@ -2,14 +2,15 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import { MyButton } from './UI/Button/MyButton';
+import '../assets/css/todo.css'
 
-export const TodoItem = ({ todo, remove }) => {
+export const TodoItem = ({ todo, remove, number }) => {
   const router = useNavigate();
 
   return (
     <div className="todo">
         <div className="todo-content">
-            <strong>{ todo.id }. { todo.title }</strong>
+            <strong>{ number }. { todo.title }</strong>
             <div>
                 { todo.body }
             </div>
