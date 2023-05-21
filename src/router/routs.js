@@ -1,4 +1,4 @@
-import NotFound from "../pages/NotFound";
+import { NotFound } from "../pages/NotFound";
 import { TodoPageId } from "../pages/TodoPageId";
 import { Todos } from "../pages/Todos";
 
