@@ -1,5 +1,6 @@
-import React from 'react'
-import { TodoItem } from './TodoItem'
+import React from 'react';
+
+import { TodoItem } from './TodoItem';
 
 export const TodoList = ({ todos, remove }) => {
 
@@ -13,7 +14,7 @@ export const TodoList = ({ todos, remove }) => {
     return (
         <div>
             {todos.map((todo, index) => 
-                <TodoItem todo={todo} key={index}/>
+                <TodoItem todo={todo} key={index} remove={remove}/>
             )}
         </div>
     )

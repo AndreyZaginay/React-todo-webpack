@@ -8,17 +8,20 @@ export const Todos = () => {
   const [todos, setTodos] = useState([]);
 
   const getTodos = () => {
-    setTodos(JSON.parse(localStorage.getItem('posts') || []));
+    setTodos(JSON.parse(localStorage.getItem('todos') || '[]'));
   }
 
-  const patchTodos = () => {
-    localStorage.setItem('posts',JSON.stringify(todos));
-  }
-
-  const createTodo = () => {
+  const createTodo = (newTodo) => {
     setTodos([...todos, newTodo]);
-    patchTodos(todos);
   }
+
+  const removeTodo = (todoId) => {
+    setTodos([...todos.filter(todo => todo.id !== todoId)]);
+  }
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }, [todos])
 
   useEffect(() => {
     getTodos();
@@ -26,8 +29,8 @@ export const Todos = () => {
 
   return (
     <div>
-      <TodoForm/>
-      <TodoList todos={todos}/>
+      <TodoForm create={createTodo}/>
+      <TodoList todos={todos} remove={removeTodo}/>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { MyButton } from './UI/Button/MyButton';
 
-export const TodoItem = ({ todo }) => {
+export const TodoItem = ({ todo, remove }) => {
   const router = useNavigate();
 
   return (
@@ -18,7 +18,7 @@ export const TodoItem = ({ todo }) => {
             <MyButton onClick={() => router(`todo/${todo.id}`)}>
                 Full info
             </MyButton>
-            <MyButton onClick={() => props.remove(todo.id)}>
+            <MyButton onClick={() => remove(todo.id)}>
                 remove
             </MyButton>
         </div>
