@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-
 import { useParams } from 'react-router-dom';
+
+import '../assets/css/todo-page';
 
 export const TodoPageId = () => {
 
@@ -8,15 +9,14 @@ export const TodoPageId = () => {
   const params = useParams();
 
   useEffect(() => {
-  // setTodo()
-  console.log(JSON.parse(localStorage.getItem('todos')));
-  console.log(params.id);
+  setTodo(JSON.parse(localStorage.getItem('todos')).find(({ id }) => id === +params.id));
   }, [])
 
   return (
-    <div>
+    <div className='todo-page'>
       <h1>You have openned the post link by id</h1>
-      <div>{todo.id}. {todo.title}</div>
+      <h4> {todo.title}</h4>
+      <p>{ todo.body }</p>
     </div>
   )
 }
